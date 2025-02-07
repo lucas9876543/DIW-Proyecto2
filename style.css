@@ -1,0 +1,350 @@
+/* Reset de márgenes y paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo general */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+}
+
+h2{
+  text-align: center;
+  padding: 1%;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: background-color 0.3s ease;
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  transition: font-size 0.3s ease;
+}
+
+/* Animación en el nav: se añadieron transiciones a los enlaces */
+header nav ul {
+  list-style: none;
+  display: flex;
+  transition: transform 0.3s ease;
+  transform: translateY(0);
+}
+
+header nav ul li {
+  margin-left: 30px; /* Aumentado para mayor separación */
+}
+
+header nav ul li:first-child {
+  margin-left: 0;
+}
+
+/* Animación de enlaces en el nav */
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Animación al pasar el ratón */
+header nav ul li a:hover {
+  color: #ffdd57;
+  transform: scale(1.1);
+}
+
+
+
+#usuario {
+  color: white;
+  font-size: 20px;
+  background-color: #333; 
+  padding: 5px 10px; 
+  border-radius: 4px; 
+  position: fixed;
+  bottom: 10%;
+  right: 20px; 
+  z-index: 200; 
+  transition: background-color 0.3s ease;
+}
+
+#usuario a {
+  color: #ffdd57;
+  text-decoration: none;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+#usuario a:hover {
+  text-decoration: underline;
+  color: #ffdd57;
+}
+
+/* Secciones */
+.seccion {
+  display: none;
+  padding: 20px;
+  margin-top: 60px; 
+}
+
+#home, #productos {
+  display: block;
+}
+
+/* Sección Inicio */
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px; 
+  transition: opacity 0.5s ease;
+}
+
+#image-container {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  margin: 20px auto 20px;
+  width: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border: 2px solid #ffd900;
+  
+}
+
+#image-container img {
+  width: 100%; 
+  height: 150px; 
+  object-fit: contain; 
+  border-radius: 8px; 
+  padding: 10px;
+}
+
+#current-image {
+  width: 80%; 
+  height: 200px; 
+  object-fit: contain; 
+  border-radius: 8px;
+  
+}
+
+#p-contador{
+  font-size: 20px;
+  color: #333;
+  margin: 0;
+}
+#p-oferta{
+  font-size: 20px;
+  color: #ff0000;
+  padding: 10px;
+  border-radius: 8px;
+  margin: auto;
+}
+/* Productos */
+#productos {
+  padding: 20px;
+}
+
+.productos-container {
+  display: flex;
+  justify-content: space-between;
+  transition: transform 0.5s ease;
+}
+
+.producto {
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  width: 30%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.producto:hover {
+  transform: scale(1.05);
+}
+
+.producto img {
+  width: 100%; 
+  height: 200px; 
+  object-fit: contain; 
+  border-radius: 8px;
+}
+
+/* Asegurarse de que el contenedor de precio y botón esté alineado */
+.precio-y-boton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px; 
+}
+
+.precio {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+.agregar-carrito {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.agregar-carrito:hover {
+  background-color: #0056b3;
+}
+
+/* Formularios */
+form {
+  display: block; 
+  width: 300px;
+  margin: 20px auto;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+form input {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%; /* Hacer el botón tan ancho como el formulario */
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #218838;
+}
+
+.finalizar{
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo para los mensajes de login y registro */
+#mensaje-login, #mensaje-registro {
+  background-color: #e7f3e7; 
+  color: #333; 
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  font-size: 16px;
+  text-align: center; 
+  display: block; 
+}
+
+#mensaje-login a, #mensaje-registro a {
+  color: #007BFF; 
+  text-decoration: none; 
+  font-weight: bold; 
+}
+
+#mensaje-login a:hover, #mensaje-registro a:hover {
+  text-decoration: underline; 
+  color: #0056b3; 
+}
+
+/*Carrito*/
+#carrito{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px; 
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-top: 20px; 
+  transition: background-color 0.3s ease;
+}
+
+/* Aseguramos que el body tenga al menos el 100% de altura */
+body {
+  min-height: 100vh; 
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+.productos-container {
+  flex-direction: column;
+  align-items: center;
+}
+
+.producto {
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+#usuario {
+  display: none; /* Ocultar el nombre del usuario en dispositivos pequeños */
+}
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
