@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tienda en línea de productos de alta calidad">
+  <title>Tienda de Comercio Electrónico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Mi Tienda</div>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="mostrarSeccion('home')">Inicio</a></li>
+        <li><a href="#" onclick="mostrarSeccion('productos')">Productos</a></li>
+        <li><a href="#" onclick="mostrarSeccion('login')">Iniciar sesión</a></li>
+        <li><a href="#" onclick="mostrarSeccion('registro')">Registrarse</a></li>
+        <li><a href="#" onclick="mostrarSeccion('carrito')">Carrito</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sección Inicio -->
+  <section id="home" class="seccion">
+    <h2>Bienvenido a nuestra tienda</h2>
+    <p>Explora nuestros productos de calidad y haz tus compras en línea de manera sencilla.</p>
+    <!-- Imagen centrada -->
+    <div id="image-container">
+      <img id="current-image" src="" alt="Imagen">
+      <p id="p-contador">Tiempo restante: <span id="counter">5</span>s</p>
+      <p id="p-oferta">Oferta especial: <span id="offer-price"></span></p>
+      <button class="agregar-carrito" onclick="agregarAlCarritoDesdeOferta()">Añadir al carrito</button>
+    </div>
+  </section>
+
+  <!-- Sección Productos -->
+  <section id="productos" class="seccion">
+    <h2>Productos</h2>
+    <div class="productos-container">
+      <!-- Producto 1 -->
+      <div class="producto">
+        <img src="img/bicicleta.jpg" alt="Bicicleta de montaña">
+        <h3>Bicicleta de montaña</h3>
+        <p>Una bicicleta resistente para aventuras en la montaña, equipada con frenos de disco y suspensión completa.</p>
+        <div class="precio-y-boton">
+          <p class="precio">$450.00</p>
+          <button class="agregar-carrito" onclick="agregarAlCarrito('Bicicleta de montaña', 450)">Añadir al carrito</button>
+        </div>
+      </div>
+      <!-- Producto 2 -->
+      <div class="producto">
+        <img src="img/camara.webp" alt="Cámara digital">
+        <h3>Cámara digital</h3>
+        <p>Captura fotos y vídeos de alta calidad con esta cámara compacta, ideal para viajar y capturar momentos especiales.</p>
+        <div class="precio-y-boton">
+          <p class="precio">$299.99</p>
+          <button class="agregar-carrito" onclick="agregarAlCarrito('Cámara digital', 299.99)">Añadir al carrito</button>
+        </div>
+      </div>
+      <!-- Producto 3 -->
+      <div class="producto">
+        <img src="img/auriculares.jpg" alt="Auriculares Bluetooth">
+        <h3>Auriculares Bluetooth</h3>
+        <p>Disfruta de tu música sin cables con estos auriculares inalámbricos, con cancelación de ruido y batería de larga duración.</p>
+        <div class="precio-y-boton">
+          <p class="precio">$89.99</p>
+          <button class="agregar-carrito" onclick="agregarAlCarrito('Auriculares Bluetooth', 89.99)">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Inicio de sesión -->
+<section id="login" class="seccion">
+    <h2>Iniciar sesión</h2>
+    <div id="mensaje-login" style="display:none;">
+      <p>Ya estás logueado. <a href="#" onclick="cerrarSesion()">Cerrar sesión</a> para cambiar de cuenta.</p>
+    </div>
+    <form id="form-login" style="display:block;">
+      <input type="email" placeholder="Correo electrónico" required>
+      <input type="password" placeholder="Contraseña" required>
+      <button type="submit">Iniciar sesión</button>
+    </form>
+  </section>
+  
+  <!-- Sección Registro -->
+  <section id="registro" class="seccion">
+    <h2>Registrarse</h2>
+    <div id="mensaje-registro" style="display:none;">
+      <p>Ya estás logueado. <a href="#" onclick="cerrarSesion()">Cerrar sesión</a> para registrarte con otro correo.</p>
+    </div>
+    <form id="form-registro" style="display:block;">
+      <input type="text" placeholder="Nombre completo" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <input type="password" placeholder="Contraseña" required>
+      <button type="submit">Registrarse</button>
+    </form>
+  </section>
+
+  <!-- Sección Carrito -->
+  <section id="carrito" class="seccion">
+    <h3>Carrito de compras</h3>
+    <div id="carrito-contenido">
+      <!-- Aquí se mostrarán los productos añadidos al carrito -->
+    </div>
+    <button class="finalizar" onclick="finalizarCompra()">Finalizar compra</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Mi Tienda</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+   const images = [
+    {src: 'img/auri.jpg', nombre: 'Auriculares Bluetooth oferta', precioOriginal: 79.99, precioOferta: 59.99},
+    {src: 'img/bicicleta.jpg', nombre: 'Bicicleta de montaña ofer', precioOriginal: 499.99, precioOferta: 399.99},
+    {src: 'img/camara.webp', nombre: 'Cámara digital oferta', precioOriginal: 249.99, precioOferta: 199.99}
+];
+    let currentIndex = 0;
+    let countdown = 5;
+    
+    const imgElement = document.getElementById("current-image");
+    const counterElement = document.getElementById("counter");
+    const offerElement = document.getElementById("offer-price");
+    
+    function changeImage() {
+    const producto = images[currentIndex]; // Obtener el producto actual
+
+    imgElement.src = producto.src;
+    imgElement.setAttribute("data-nombre", producto.nombre);
+    imgElement.setAttribute("data-precio-oferta", producto.precioOferta);
+
+    offerElement.textContent = `$${producto.precioOferta.toFixed(2)}`; // Mostrar precio con 2 decimales
+    countdown = 59;
+    counterElement.textContent = countdown;
+}
+    function updateCounter() {
+        if (countdown > 0) {
+            countdown--;
+            counterElement.textContent = countdown;
+        } else {
+            currentIndex = (currentIndex + 1) % images.length;
+            changeImage();
+        }
+    }
+    
+    changeImage();
+    setInterval(updateCounter, 1000);
+</script>
+</body>
+</html>
