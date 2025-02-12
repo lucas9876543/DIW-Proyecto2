@@ -29,7 +29,7 @@
     <div id="image-container">
       <img id="current-image" src="" alt="Imagen">
       <p id="p-contador">Tiempo restante: <span id="counter">5</span>s</p>
-      <p id="p-oferta">Oferta especial: <span id="offer-price"></span></p>
+      <p id="p-oferta">Oferta especial:<span id="precioTachado"></span> <span id="offer-price"></span></p>
       <button class="agregar-carrito" onclick="agregarAlCarritoDesdeOferta()">Añadir al carrito</button>
     </div>
   </section>
@@ -68,6 +68,38 @@
           <button class="agregar-carrito" onclick="agregarAlCarrito('Auriculares Bluetooth', 89.99)">Añadir al carrito</button>
         </div>
       </div>
+<!-- Producto 4 (Teclado Mecánico RGB Gamer) -->
+<div class="producto">
+  <img src="img/teclado.jpg" alt="Teclado Mecánico RGB Gamer">
+  <h3>Teclado Mecánico RGB Gamer</h3>
+  <p>Eleva tu experiencia de juego con este teclado mecánico retroiluminado RGB. Respuesta rápida, teclas personalizables y diseño ergonómico.</p>
+  <div class="precio-y-boton">
+    <p class="precio">$45.00</p>
+    <button class="agregar-carrito" onclick="agregarAlCarrito('Teclado Mecánico RGB Gamer', 35.00)">Añadir al carrito</button>
+  </div>
+</div>
+
+<!-- Producto 5 (Smartwatch FitPro) -->
+<div class="producto">
+  <img src="img/smartwatch.jpg" alt="Smartwatch FitPro">
+  <h3>Smartwatch FitPro</h3>
+  <p>Mantente activo y conectado con este moderno smartwatch. Monitorea tu ritmo cardíaco, pasos, calorías y recibe notificaciones de tu celular.</p>
+  <div class="precio-y-boton">
+    <p class="precio">$30.00</p>
+    <button class="agregar-carrito" onclick="agregarAlCarrito('Smartwatch FitPro', 25.00)">Añadir al carrito</button>
+  </div>
+</div>
+
+<!-- Producto 6 (Mochila Antirrobo UrbanTech) -->
+<div class="producto">
+  <img src="img/mochila.avif" alt="Mochila Antirrobo UrbanTech">
+  <h3>Mochila Antirrobo UrbanTech</h3>
+  <p>Ideal para la ciudad o viajes, esta mochila antirrobo cuenta con compartimentos ocultos, material impermeable y puerto USB integrado para cargar tu celular.</p>
+  <div class="precio-y-boton">
+    <p class="precio">$40.00</p>
+    <button class="agregar-carrito" onclick="agregarAlCarrito('Mochila Antirrobo UrbanTech', 30.00)">Añadir al carrito</button>
+  </div>
+</div>
     </div>
   </section>
 
@@ -114,16 +146,20 @@
   <script src="script.js"></script>
   <script>
    const images = [
-    {src: 'img/auri.jpg', nombre: 'Auriculares Bluetooth oferta', precioOriginal: 79.99, precioOferta: 59.99},
-    {src: 'img/bicicleta.jpg', nombre: 'Bicicleta de montaña ofer', precioOriginal: 499.99, precioOferta: 399.99},
-    {src: 'img/camara.webp', nombre: 'Cámara digital oferta', precioOriginal: 249.99, precioOferta: 199.99}
-];
+    {src: 'img/auriculares.jpg', nombre: 'Auriculares Bluetooth oferta', precioOriginal: 79.99, precioOferta: 59.99},
+    {src: 'img/bicicleta.jpg', nombre: 'Bicicleta de montaña oferta', precioOriginal: 499.99, precioOferta: 399.99},
+    {src: 'img/camara.webp', nombre: 'Cámara digital oferta', precioOriginal: 249.99, precioOferta: 199.99},
+    {src: 'img/teclado.jpg', nombre: 'Teclado Mecánico RGB Gamer oferta', precioOriginal: 45.00, precioOferta: 35.00},
+    {src: 'img/smartwatch.jpg', nombre: 'Smartwatch FitPro oferta', precioOriginal: 30.00, precioOferta: 25.00},
+    {src: 'img/mochila.avif', nombre: 'Mochila Antirrobo UrbanTech oferta', precioOriginal: 40.00, precioOferta: 30.00}
+  ];
     let currentIndex = 0;
     let countdown = 5;
     
     const imgElement = document.getElementById("current-image");
     const counterElement = document.getElementById("counter");
     const offerElement = document.getElementById("offer-price");
+    const precioTachadoElement = document.getElementById("precioTachado");
     
     function changeImage() {
     const producto = images[currentIndex]; // Obtener el producto actual
@@ -133,6 +169,8 @@
     imgElement.setAttribute("data-precio-oferta", producto.precioOferta);
 
     offerElement.textContent = `$${producto.precioOferta.toFixed(2)}`; // Mostrar precio con 2 decimales
+    precioTachadoElement.textContent = `$${producto.precioOriginal.toFixed(2)}`; // Mostrar precio con 2 decimales
+    precioTachadoElement.style.textDecoration = "line-through"; // Aplicar tachado al precio original
     countdown = 59;
     counterElement.textContent = countdown;
 }
