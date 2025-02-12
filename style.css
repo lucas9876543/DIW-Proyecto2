@@ -8,7 +8,7 @@
 /* Estilo general */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4;
+  background-image: url(img/fondo.webp);
   color: #333;
   min-height: 100vh; 
   display: flex;
@@ -77,11 +77,11 @@ header nav ul li a:hover {
 #usuario {
   color: white;
   font-size: 20px;
-  background-color: #333; 
+  background-color: #28a745; 
   padding: 5px 10px; 
   border-radius: 4px; 
   position: fixed;
-  bottom: 10%;
+  bottom: 5%;
   right: 20px; 
   z-index: 200; 
   transition: background-color 0.3s ease;
@@ -168,8 +168,9 @@ header nav ul li a:hover {
 }
 
 .productos-container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
   transition: transform 0.5s ease;
 }
 
@@ -178,7 +179,7 @@ header nav ul li a:hover {
   border-radius: 8px;
   padding: 10px;
   text-align: center;
-  width: 30%;
+  min-width: 30%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -199,13 +200,13 @@ header nav ul li a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px; 
 }
 
 .precio {
   font-size: 18px;
   color: #333;
   margin: 0;
+  bottom: 2px;
 }
 
 .agregar-carrito {
