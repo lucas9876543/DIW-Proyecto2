@@ -68,7 +68,7 @@
           <button class="agregar-carrito" onclick="agregarAlCarrito('Auriculares Bluetooth', 89.99)">Añadir al carrito</button>
         </div>
       </div>
-<!-- Producto 4 (Teclado Mecánico RGB Gamer) -->
+<!-- Producto 4  -->
 <div class="producto">
   <img src="img/teclado.jpg" alt="Teclado Mecánico RGB Gamer">
   <h3>Teclado Mecánico RGB Gamer</h3>
@@ -79,7 +79,7 @@
   </div>
 </div>
 
-<!-- Producto 5 (Smartwatch FitPro) -->
+<!-- Producto 5 ) -->
 <div class="producto">
   <img src="img/smartwatch.jpg" alt="Smartwatch FitPro">
   <h3>Smartwatch FitPro</h3>
@@ -90,7 +90,7 @@
   </div>
 </div>
 
-<!-- Producto 6 (Mochila Antirrobo UrbanTech) -->
+<!-- Producto 6  -->
 <div class="producto">
   <img src="img/mochila.avif" alt="Mochila Antirrobo UrbanTech">
   <h3>Mochila Antirrobo UrbanTech</h3>
@@ -134,7 +134,7 @@
   <section id="carrito" class="seccion">
     <h3>Carrito de compras</h3>
     <div id="carrito-contenido">
-      <!-- Aquí se mostrarán los productos añadidos al carrito -->
+     
     </div>
     <button class="finalizar" onclick="finalizarCompra()">Finalizar compra</button>
   </section>
@@ -144,48 +144,6 @@
   </footer>
 
   <script src="script.js"></script>
-  <script>
-   const images = [
-    {src: 'img/auriculares.jpg', nombre: 'Auriculares Bluetooth oferta', precioOriginal: 79.99, precioOferta: 59.99},
-    {src: 'img/bicicleta.jpg', nombre: 'Bicicleta de montaña oferta', precioOriginal: 499.99, precioOferta: 399.99},
-    {src: 'img/camara.webp', nombre: 'Cámara digital oferta', precioOriginal: 249.99, precioOferta: 199.99},
-    {src: 'img/teclado.jpg', nombre: 'Teclado Mecánico RGB Gamer oferta', precioOriginal: 45.00, precioOferta: 35.00},
-    {src: 'img/smartwatch.jpg', nombre: 'Smartwatch FitPro oferta', precioOriginal: 30.00, precioOferta: 25.00},
-    {src: 'img/mochila.avif', nombre: 'Mochila Antirrobo UrbanTech oferta', precioOriginal: 40.00, precioOferta: 30.00}
-  ];
-    let currentIndex = 0;
-    let countdown = 5;
-    
-    const imgElement = document.getElementById("current-image");
-    const counterElement = document.getElementById("counter");
-    const offerElement = document.getElementById("offer-price");
-    const precioTachadoElement = document.getElementById("precioTachado");
-    
-    function changeImage() {
-    const producto = images[currentIndex]; // Obtener el producto actual
-
-    imgElement.src = producto.src;
-    imgElement.setAttribute("data-nombre", producto.nombre);
-    imgElement.setAttribute("data-precio-oferta", producto.precioOferta);
-
-    offerElement.textContent = `$${producto.precioOferta.toFixed(2)}`; // Mostrar precio con 2 decimales
-    precioTachadoElement.textContent = `$${producto.precioOriginal.toFixed(2)}`; // Mostrar precio con 2 decimales
-    precioTachadoElement.style.textDecoration = "line-through"; // Aplicar tachado al precio original
-    countdown = 59;
-    counterElement.textContent = countdown;
-}
-    function updateCounter() {
-        if (countdown > 0) {
-            countdown--;
-            counterElement.textContent = countdown;
-        } else {
-            currentIndex = (currentIndex + 1) % images.length;
-            changeImage();
-        }
-    }
-    
-    changeImage();
-    setInterval(updateCounter, 1000);
-</script>
+  <script src="script2.js"></script>
 </body>
 </html>

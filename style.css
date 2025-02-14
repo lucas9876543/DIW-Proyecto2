@@ -51,7 +51,7 @@ header nav ul {
 }
 
 header nav ul li {
-  margin-left: 30px; /* Aumentado para mayor separación */
+  margin-left: 30px; 
 }
 
 header nav ul li:first-child {
@@ -247,7 +247,7 @@ form button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 100%; /* Hacer el botón tan ancho como el formulario */
+  width: 100%; 
   transition: background-color 0.3s ease;
 }
 
@@ -298,6 +298,13 @@ form button:hover {
   align-items: center;
   text-align: center;
   padding: 60px 20px; 
+  color: #ffffff;
+  text-shadow: 1px 1px 1px #000000;
+  font-size: large;
+  background-color: #81818175;
+  width: 450px;
+  margin: 8% auto;
+  border-radius: 5%;
 }
 
 /* Footer */
@@ -305,7 +312,7 @@ footer {
   text-align: center;
   padding: 10px;
   background-color: #333;
-  color: white;
+  color: rgb(255, 255, 255);
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -336,7 +343,7 @@ main {
 }
 
 #usuario {
-  display: none; /* Ocultar el nombre del usuario en dispositivos pequeños */
+  display: none; 
 }
 }
 
